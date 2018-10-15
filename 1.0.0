@@ -18,6 +18,7 @@ typedef struct token {
     struct token* next;
 } Token;
 
+void manual(void);
 void calc(char*);
 Token* tokenize(char*);   // 처음 토큰(EOF) 반환
 
@@ -46,18 +47,31 @@ int main()
                 calc(formula);
             }
         }
-        if (key == 2) {
-            system("CLS");
-            printf("\n");
-            system("PAUSE");
-        }
+        if (key == 2)
+            manual();
     }
 
     return 0;
 }
 
+void manual()
+{
+    system("CLS");
+
+    printf(" ( : 괄호의 열림을 나타냅니다.\n");
+    printf(" ) : 괄호의 닫힘을 나타냅니다.\n");
+    printf(" + : 양의 부호 또는 덧셈 연산자를 나타냅니다.\n");
+    printf(" - : 음의 부호 또는 뺄셈 연산자를 나타냅니다.\n");
+    printf(" * : 곱셈 연산자를 나타냅니다.\n");
+    printf(" / : 나눗셈 연산자를 나타냅니다.\n");
+
+    system("PAUSE");
+    return;
+}
+
 void calc(char* formula)
 {
+    int i, numToken = 0;
     Token* cur;
 
     cur = tokenize(formula);
