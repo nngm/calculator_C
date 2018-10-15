@@ -1,6 +1,6 @@
 // 1.0.1
 // 2018. 10. 15. 21:13
-// 추가된 점 : 매크로 상수 사용
+// 추가된 점 : 매크로 상수 사용, strcpy → strncpy, CAL에서 바로 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,8 +52,12 @@ int main()
                 do {
                     gets(formula);
                 } while (!strlen(formula));
+
                 if (!strcmp(strupr(formula), "BACK") || !strcmp(strupr(formula), "B"))
                     break;
+                if (!strcmp(strupr(formula), "QUIT") || !strcmp(strupr(formula), "Q"))
+                    exit(0);
+
                 calc(formula);
             }
         }
@@ -211,9 +215,11 @@ Token* tokenize(char* fmla)
         if (fmla[i] >= '0' && fmla[i] <= '9' || cur->info != 3 && (fmla[i] == '+' || fmla[i] == '-')) {
             int j;
             char temp[100];
+
             for (j = 1; fmla[i + j] >= '0' && fmla[i + j] <= '9' || fmla[i + j] == '.'; j++);
-            strcpy(temp, fmla + i);
-            temp[j] = 0;
+
+            strncpy(temp, fmla + i, j);
+
             new->info = 3;
             new->value = atof(temp);
             i += j - 1;
