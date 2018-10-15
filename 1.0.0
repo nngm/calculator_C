@@ -58,21 +58,11 @@ int main()
 
 void calc(char* formula)
 {
-    int i, numToken = 0;
     Token* cur;
 
     cur = tokenize(formula);
 
     while (1) {
-        for (i = 0; cur->next->info != 0; i++, cur = cur->next);
-        if (i == numToken) {
-            printf("오류");
-            system("PAUSE>NUL");
-            return;
-        }
-
-        numToken = i;
-        cur = cur->next->next;
         if (cur->info < 3) {        // EOF, (, )
             cur = cur->next;
         }
