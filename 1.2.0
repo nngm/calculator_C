@@ -541,7 +541,7 @@ Token* tokenize(char* fmla)
     Token* head = cur;
     cur->info = 0;
 
-    for (i = 0; i < strlen(fmla); i++) {    // e, pi 추가할 것!
+    for (i = 0; i < strlen(fmla); i++) {
         if (fmla[i] == ' ')
             continue;
 
