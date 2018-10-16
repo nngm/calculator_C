@@ -537,7 +537,7 @@ void calc(char* formula)
 Token* tokenize(char* fmla)
 {
     int i;
-    Token* cur = (Token*) malloc(sizeof(Token*));
+    Token* cur = (Token*) malloc(sizeof(Token));
     Token* head = cur;
     cur->info = 0;
 
