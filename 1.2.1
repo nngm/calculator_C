@@ -555,7 +555,7 @@ Token* tokenize(char* fmla)
 
         Token* new = (Token*) malloc(sizeof(Token));
 
-        if (fmla[i] >= '0' && fmla[i] <= '9' || (cur->info > 3 || cur->info == 0) && (fmla[i] == '+' || fmla[i] == '-')) {
+        if (fmla[i] >= '0' && fmla[i] <= '9' || (cur->info > 3 || cur->info < 2) && (fmla[i] == '+' || fmla[i] == '-')) {
             int j;
             char temp[100];
 
