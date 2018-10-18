@@ -185,13 +185,13 @@ void calc(char* formula)
     cur = tokenize(formula);
     head = cur;
 
-    while (1) {
+    while (1) {/*
         printToken(head);
         printf("cur : ");
         if (cur->info == 3)
             printf("%G\n", cur->value);
         else
-            printf("%c\n", getOperator(cur->info));
+            printf("%c\n", getOperator(cur->info));*/
         if (cur->info < 3) {        // EOF, (, )
             cur = cur->next;
         }
