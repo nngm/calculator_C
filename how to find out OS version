@@ -1,0 +1,14 @@
+#include <windows.h>
+
+int main()
+{
+    OSVERSIONINFOA ver;
+    
+    ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFOA);
+    GetVersionExA(&ver);
+    
+    ver.dwMajorVersion; // 6
+    ver.dwMinorVersion; // 1: Win7  2:Win10
+    
+    return 0;
+}
